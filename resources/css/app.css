@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        color-scheme: dark;
+    }
+
+    body {
+        @apply bg-ink-900 text-gray-200 antialiased;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    ::selection {
+        @apply bg-brand/30 text-white;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-ink-800;
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-ink-500 rounded-full border-2 border-ink-800;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-ink-400;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-ink-800 border border-ink-500/60 rounded-xl shadow-card;
+    }
+
+    .card-hover {
+        @apply transition duration-200 hover:border-ink-400 hover:shadow-card-hover;
+    }
+
+    .input {
+        @apply w-full rounded-lg bg-ink-900 border border-ink-500 text-gray-100 placeholder-gray-500 px-3.5 py-2.5 text-sm focus:border-brand focus:ring-1 focus:ring-brand/40 focus:outline-none transition;
+    }
+
+    .label {
+        @apply block text-xs font-medium text-gray-400 mb-1.5;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-ink-900 disabled:opacity-60 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply btn bg-brand text-white hover:bg-brand-hover focus:ring-brand/50;
+    }
+
+    .btn-secondary {
+        @apply btn bg-ink-700 text-gray-200 border border-ink-500 hover:bg-ink-600 focus:ring-ink-400/40;
+    }
+
+    .btn-ghost {
+        @apply btn text-gray-300 hover:bg-ink-700 hover:text-white;
+    }
+
+    .btn-danger {
+        @apply btn bg-red-600/90 text-white hover:bg-red-600 focus:ring-red-500/50;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium;
+    }
+
+    .nav-link {
+        @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-400 transition hover:bg-ink-700 hover:text-gray-100;
+    }
+
+    .nav-link-active {
+        @apply bg-brand-soft text-brand hover:bg-brand-soft hover:text-brand;
+    }
+
+    .th {
+        @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500;
+    }
+
+    .td {
+        @apply px-4 py-3 text-sm text-gray-300 whitespace-nowrap;
+    }
+
+    .tab {
+        @apply px-4 py-2.5 text-sm font-medium text-gray-400 border-b-2 border-transparent hover:text-gray-200 transition;
+    }
+
+    .tab-active {
+        @apply text-brand border-brand;
+    }
+}
